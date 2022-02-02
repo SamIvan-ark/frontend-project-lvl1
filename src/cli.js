@@ -1,10 +1,7 @@
 import readline from 'readline-sync';
 
-const getUserName = () => readline.question('May I have your name?\n');
+export const getUserName = () => readline.question('May I have your name?\n');
 
-const sayHi = () => {
-  const name = getUserName();
+export const sayHi = (name) => {
   console.log(`Hello, ${name}!`);
 };
-
-export default sayHi;
