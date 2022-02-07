@@ -1,7 +1,10 @@
 #!/usr/bin/env node
-import _ from 'lodash';
 
-export const getRandomNum = (max, min = 1) => _.random(max, min);
+export const getRandomNum = (max, min = 1) => {
+  const a = Math.ceil(min);
+  const b = Math.floor(max);
+  return Math.floor(Math.random() * (b - a + 1)) + a;
+};
 
 export const startGame = (getTask, getQuestion, getRightAnswer, getUserAnswer, name) => {
   let count = 1;

@@ -6,24 +6,21 @@ import { startGame, getRandomNum } from '../src/index.js';
 console.log('Welcome to the Brain Games!');
 const name = getUserName();
 sayHi(name);
-console.log('What is the result of the expression?');
+console.log('Find the greatest common divisor of given numbers.');
 
-const operators = ['+', '-', '*'];
-const getOperationColl = () => {
-  const a = getRandomNum(50, 1);
-  const b = getRandomNum(25, 1);
-  const i = getRandomNum(2, 0);
+const getNumsColl = () => {
+  const a = getRandomNum(100, 1);
+  const b = getRandomNum(100, 1);
 
-  return [a, operators[i], b];
+  return [a, b];
 };
 
-const getRightAnswer = ([x, i, y]) => {
-  if (i === '+') {
-    return x + y;
-  } if (i === '-') {
-    return x - y;
+const getDivisor = ([x, y]) => {
+  let divisor = (x >= y) ? y : x;
+  while (x % divisor !== 0 || y % divisor !== 0) {
+    divisor -= 1;
   }
-  return x * y;
+  return divisor;
 };
 
 const getUserAnswer = () => {
@@ -34,9 +31,9 @@ const getUserAnswer = () => {
 const getQuestionContent = (arr) => arr.join(' ');
 
 startGame(
-  getOperationColl,
+  getNumsColl,
   getQuestionContent,
-  getRightAnswer,
+  getDivisor,
   getUserAnswer,
   name,
 );
