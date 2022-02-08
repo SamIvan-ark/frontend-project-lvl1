@@ -6,5 +6,7 @@
 [![asciicast](https://asciinema.org/a/466123.svg)](https://asciinema.org/a/466123)
 ### Brain-calc functionality example
 [![asciicast](https://asciinema.org/a/467256.svg)](https://asciinema.org/a/467256)
-### Brain-gcd functionality
+### Brain-gcd functionality example
 [![asciicast](https://asciinema.org/a/467365.svg)](https://asciinema.org/a/467365)
+### Brain-progression functionality example
+[![asciicast](https://asciinema.org/a/467562.svg)](https://asciinema.org/a/467562)
