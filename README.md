@@ -10,3 +10,5 @@
 [![asciicast](https://asciinema.org/a/467365.svg)](https://asciinema.org/a/467365)
 ### Brain-progression functionality example
 [![asciicast](https://asciinema.org/a/467562.svg)](https://asciinema.org/a/467562)
+### Brain-prime functionality example
+[![asciicast](https://asciinema.org/a/467568.svg)](https://asciinema.org/a/467568)
