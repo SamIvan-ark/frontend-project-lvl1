@@ -1,11 +1,4 @@
 #!/usr/bin/env node
-import readline from 'readline-sync';
-
-export const getUserName = () => readline.question('May I have your name?\n');
-
-export const sayHi = (name) => {
-  console.log(`Hello, ${name}!`);
-};
 
 export const getRandomNum = (max, min = 1) => {
   const a = Math.ceil(min);
