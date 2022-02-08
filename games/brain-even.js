@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 import readline from 'readline-sync';
-import { getUserName, sayHi } from '../src/cli.js';
-import { startGame, getRandomNum } from '../src/index.js';
+import {
+  getUserName, sayHi, startGame, getRandomNum,
+} from '../src/index.js';
 
 console.log('Welcome to the Brain Games!');
 const name = getUserName();
