@@ -14,7 +14,7 @@ export const generateRound = () => {
 
   const componentsOfOperation = getComponentsOfOpetarion();
 
-  const getQuestion = (componentsColl) => componentsColl.join(' ');
+  const getOperationString = (componentsColl) => componentsColl.join(' ');
 
   const getAnswer = ([leftOperand, operator, rightOperand]) => {
     if (operator === '+') {
@@ -28,5 +28,5 @@ export const generateRound = () => {
     return String(answer);
   };
 
-  return [getAnswer(componentsOfOperation), getQuestion(componentsOfOperation)];
+  return [getAnswer(componentsOfOperation), getOperationString(componentsOfOperation)];
 };

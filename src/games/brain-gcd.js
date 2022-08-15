@@ -1,39 +1,26 @@
-#!/usr/bin/env node
-import readline from 'readline-sync';
-import { getUserName, sayHi } from '../src/cli.js';
-import { startGame, getRandomNum } from '../src/index.js';
+import { getRandomNumber } from '../utils.js';
 
-console.log('Welcome to the Brain Games!');
-const name = getUserName();
-sayHi(name);
-console.log('Find the greatest common divisor of given numbers.');
+export const rules = 'Find the greatest common divisor of given numbers.';
 
-const getNumsColl = () => {
-  const a = getRandomNum(100, 1);
-  const b = getRandomNum(100, 1);
+export const generateRound = () => {
+  const generateNumbers = () => {
+    const firstNumber = getRandomNumber(100, 1);
+    const secondNumber = getRandomNumber(100, 1);
 
-  return [a, b];
+    return [firstNumber, secondNumber];
+  };
+
+  const numbers = generateNumbers();
+
+  const convertNumbersToString = (numbersColl) => numbersColl.join(' ');
+
+  const getDivisor = ([x, y]) => {
+    let divisor = (x >= y) ? y : x;
+    while (x % divisor !== 0 || y % divisor !== 0) {
+      divisor -= 1;
+    }
+    return divisor;
+  };
+
+  return [String(getDivisor(numbers)), convertNumbersToString(numbers)];
 };
-
-const getDivisor = ([x, y]) => {
-  let divisor = (x >= y) ? y : x;
-  while (x % divisor !== 0 || y % divisor !== 0) {
-    divisor -= 1;
-  }
-  return divisor;
-};
-
-const getUserAnswer = () => {
-  const str = readline.question('Your answer: ');
-  return Number(str);
-};
-
-const getQuestionContent = (arr) => arr.join(' ');
-
-startGame(
-  getNumsColl,
-  getQuestionContent,
-  getDivisor,
-  getUserAnswer,
-  name,
-);
