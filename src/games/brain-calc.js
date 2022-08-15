@@ -1,42 +1,32 @@
-#!/usr/bin/env node
-import readline from 'readline-sync';
-import { getUserName, sayHi } from '../src/cli.js';
-import { startGame, getRandomNum } from '../src/index.js';
+import { getRandomNumber } from '../utils.js';
 
-console.log('Welcome to the Brain Games!');
-const name = getUserName();
-sayHi(name);
-console.log('What is the result of the expression?');
-
+export const rules = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
-const getOperationColl = () => {
-  const a = getRandomNum(50, 1);
-  const b = getRandomNum(25, 1);
-  const i = getRandomNum(2, 0);
 
-  return [a, operators[i], b];
+export const generateRound = () => {
+  const getComponentsOfOpetarion = () => {
+    const leftOperand = getRandomNumber(50, 1);
+    const rightOperand = getRandomNumber(25, 1);
+    const indexOfOperator = getRandomNumber(2, 0);
+
+    return [leftOperand, operators[indexOfOperator], rightOperand];
+  };
+
+  const componentsOfOperation = getComponentsOfOpetarion();
+
+  const getQuestion = (componentsColl) => componentsColl.join(' ');
+
+  const getAnswer = ([leftOperand, operator, rightOperand]) => {
+    if (operator === '+') {
+      const answer = leftOperand + rightOperand;
+      return String(answer);
+    } if (operator === '-') {
+      const answer = leftOperand - rightOperand;
+      return String(answer);
+    }
+    const answer = leftOperand * rightOperand;
+    return String(answer);
+  };
+
+  return [getAnswer(componentsOfOperation), getQuestion(componentsOfOperation)];
 };
-
-const getRightAnswer = ([x, i, y]) => {
-  if (i === '+') {
-    return x + y;
-  } if (i === '-') {
-    return x - y;
-  }
-  return x * y;
-};
-
-const getUserAnswer = () => {
-  const str = readline.question('Your answer: ');
-  return Number(str);
-};
-
-const getQuestionContent = (arr) => arr.join(' ');
-
-startGame(
-  getOperationColl,
-  getQuestionContent,
-  getRightAnswer,
-  getUserAnswer,
-  name,
-);
