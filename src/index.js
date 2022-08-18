@@ -1,31 +1,22 @@
-#!/usr/bin/env node
+import { askQuestionAndGetAnswer } from './utils.js';
 
-export const getRandomNum = (max, min = 1) => {
-  const a = Math.ceil(min);
-  const b = Math.floor(max);
-  return Math.floor(Math.random() * (b - a + 1)) + a;
-};
+const roundsCount = 3;
 
-export const startGame = (getTask, getQuestion, getRightAnswer, getUserAnswer, name) => {
-  let count = 1;
-  do {
-    const task = getTask();
-    const rightAnsw = getRightAnswer(task);
+export default (rules, generateRound) => {
+  console.log('Welcome to the Brain Games!');
+  const username = askQuestionAndGetAnswer('May I have your name?\n');
+  console.log(`Hello, ${username}!\n${rules}`);
 
-    console.log(`Question: ${getQuestion(task)}`);
-
-    const userAnsw = getUserAnswer();
-    if (rightAnsw === userAnsw) {
+  for (let i = roundsCount; i > 0; i -= 1) {
+    const [answer, question] = generateRound();
+    console.log(`Question: ${question}`);
+    const userAnswer = askQuestionAndGetAnswer('Your answer: ');
+    if (userAnswer === answer) {
       console.log('Correct!');
-      count += 1;
     } else {
-      console.log(`'${userAnsw}' is wrong answer ;(. Correct answer was '${rightAnsw}'.`);
-      console.log(`Let's try again, ${name}!`);
-      count = -1;
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.\nLet's try again, ${username}!`);
+      return;
     }
-  } while (count <= 3 && count > 0);
-
-  if (count > 0) {
-    console.log(`Congratulations, ${name}!`);
   }
+  console.log(`Congratulations, ${username}!`);
 };
