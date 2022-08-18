@@ -28,5 +28,8 @@ export const generateRound = () => {
     return String(answer);
   };
 
-  return [getAnswer(componentsOfOperation), getOperationString(componentsOfOperation)];
+  const answer = getAnswer(componentsOfOperation);
+  const operationForTask = getOperationString(componentsOfOperation);
+
+  return [answer, operationForTask];
 };

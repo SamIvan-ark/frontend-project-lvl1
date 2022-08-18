@@ -3,7 +3,7 @@ import { getRandomNumber } from '../utils.js';
 export const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 export const generateRound = () => {
-  const number = getRandomNumber(200, 1);
+  const taskNumber = getRandomNumber(200, 1);
 
   const isPrime = (num) => {
     for (let i = 2; i <= num / 2; i += 1) {
@@ -12,7 +12,7 @@ export const generateRound = () => {
     return true;
   };
 
-  const answer = isPrime(number) ? 'yes' : 'no';
+  const answer = isPrime(taskNumber) ? 'yes' : 'no';
 
-  return [answer, number];
+  return [answer, taskNumber];
 };

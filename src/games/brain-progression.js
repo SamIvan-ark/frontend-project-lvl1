@@ -21,12 +21,13 @@ export const generateRound = () => {
 
   const getQuestionAndAnswer = (arr) => {
     const index = getRandomNumber((arr.length - 1), 0);
-    const answer = arr[index];
+    const answer = String(arr[index]);
 
     const task = arr;
     task[index] = '..';
+    const normalizedTaskProgression = task.join(' ');
 
-    return [String(answer), task];
+    return [answer, normalizedTaskProgression];
   };
 
   return getQuestionAndAnswer(progression);

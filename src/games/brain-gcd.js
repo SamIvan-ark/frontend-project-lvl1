@@ -22,5 +22,9 @@ export const generateRound = () => {
     return divisor;
   };
 
-  return [String(getDivisor(numbers)), convertNumbersToString(numbers)];
+  const numbersForTask = convertNumbersToString(numbers);
+
+  const normalizedAnswer = String(getDivisor(numbers));
+
+  return [normalizedAnswer, numbersForTask];
 };
