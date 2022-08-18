@@ -11,7 +11,7 @@ export default (rules, generateRound) => {
     const [answer, question] = generateRound();
     console.log(`Question: ${question}`);
     const userAnswer = askQuestionAndGetAnswer('Your answer: ');
-    if (userAnswer === answer) {
+    if (userAnswer.toLowerCase() === answer) {
       console.log('Correct!');
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.\nLet's try again, ${username}!`);
