@@ -1,4 +1,4 @@
-import { getRandomNumber } from '../utils.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 export const rules = 'Find the greatest common divisor of given numbers.';
 

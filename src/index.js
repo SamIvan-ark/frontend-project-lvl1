@@ -1,16 +1,16 @@
-import { askQuestionAndGetAnswer } from './utils.js';
+import readline from 'readline-sync';
 
 const roundsCount = 3;
 
 export default (rules, generateRound) => {
   console.log('Welcome to the Brain Games!');
-  const username = askQuestionAndGetAnswer('May I have your name?\n');
+  const username = readline.question('May I have your name?\n');
   console.log(`Hello, ${username}!\n${rules}`);
 
   for (let i = roundsCount; i > 0; i -= 1) {
     const [answer, question] = generateRound();
     console.log(`Question: ${question}`);
-    const userAnswer = askQuestionAndGetAnswer('Your answer: ');
+    const userAnswer = readline.question('Your answer: ');
     if (userAnswer.toLowerCase() === answer) {
       console.log('Correct!');
     } else {

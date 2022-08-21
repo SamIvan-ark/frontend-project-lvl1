@@ -1,4 +1,4 @@
-import { getRandomNumber } from '../utils.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 export const rules = 'What number is missing in the progression?';
 
