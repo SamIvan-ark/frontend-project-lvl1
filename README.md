@@ -3,8 +3,7 @@
 [![Actions Status](https://github.com/SamIvan-ark/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/SamIvan-ark/frontend-project-lvl1/actions)
 ### Codeclimate maintainability Badge
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/f086b6df865c43ced51a/maintainability)]
-(https://codeclimate.com/github/SamIvan-ark/frontend-project-lvl1/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f086b6df865c43ced51a/maintainability)](https://codeclimate.com/github/SamIvan-ark/frontend-project-lvl1/maintainability)
 
 # Brain-games! 
 
@@ -15,7 +14,7 @@ For launch require npm.
 ### Installing:
 
 1. clone repo in your local machine;
-2. hit npm ci (or 'make install' if you got make npm-package installed)
+2. hit "npm ci" (or 'make install' if you got "Make" npm-package installed)
 3. play!
 
 ### Supported commands:
