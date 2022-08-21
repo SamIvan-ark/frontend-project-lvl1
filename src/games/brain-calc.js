@@ -1,31 +1,32 @@
 import getRandomNumber from '../getRandomNumber.js';
+import runEngine from '../index.js';
 
-export const rules = 'What is the result of the expression?';
+const rules = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
+
+const calculate = (number1, number2, operator) => {
+  switch (operator) {
+    case '+': {
+      return String(number1 + number2);
+    }
+    case '-': {
+      return String(number1 - number2);
+    }
+    default: {
+      return String(number1 * number2);
+    }
+  }
+};
 
 const generateRound = () => {
   const leftOperand = getRandomNumber(1, 50);
   const rightOperand = getRandomNumber(1, 25);
   const operator = operators[getRandomNumber(0, operators.length - 1)];
 
-  const componentsOfOperation = getComponentsOfOpetarion();
+  const question = `${leftOperand} ${operator} ${rightOperand}`;
+  const answer = calculate(leftOperand, rightOperand, operator);
 
-  const getOperationString = (componentsColl) => componentsColl.join(' ');
-
-  const getAnswer = ([leftOperand, operator, rightOperand]) => {
-    if (operator === '+') {
-      const answer = leftOperand + rightOperand;
-      return String(answer);
-    } if (operator === '-') {
-      const answer = leftOperand - rightOperand;
-      return String(answer);
-    }
-    const answer = leftOperand * rightOperand;
-    return String(answer);
-  };
-
-  const answer = getAnswer(componentsOfOperation);
-  const operationForTask = getOperationString(componentsOfOperation);
-
-  return [answer, operationForTask];
+  return [answer, question];
 };
+
+export default () => runEngine(rules, generateRound);
