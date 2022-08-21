@@ -7,7 +7,7 @@ export default (rules, generateRound) => {
   const username = readline.question('May I have your name?\n');
   console.log(`Hello, ${username}!\n${rules}`);
 
-  for (let i = roundsCount; i > 0; i -= 1) {
+  for (let i = 0; i < roundsCount; i += 1) {
     const [answer, question] = generateRound();
     console.log(`Question: ${question}`);
     const userAnswer = readline.question('Your answer: ');
