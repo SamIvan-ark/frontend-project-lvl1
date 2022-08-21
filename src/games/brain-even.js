@@ -1,13 +1,15 @@
 import getRandomNumber from '../getRandomNumber.js';
+import runEngine from '../index.js';
 
-export const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-export const generateRound = () => {
-  const taskNumber = getRandomNumber(1, 50);
+const isEven = (num) => ((num % 2 === 0) ? 'yes' : 'no');
 
-  const isEven = (num) => ((num % 2 === 0) ? 'yes' : 'no');
+const generateRound = () => {
+  const queston = getRandomNumber(1, 50);
+  const answer = isEven(queston);
 
-  const answer = isEven(taskNumber);
-
-  return [answer, taskNumber];
+  return [answer, queston];
 };
+
+export default () => runEngine(rules, generateRound);

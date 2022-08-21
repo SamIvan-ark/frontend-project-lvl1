@@ -1,34 +1,32 @@
 import getRandomNumber from '../getRandomNumber.js';
+import runEngine from '../index.js';
 
-export const rules = 'What number is missing in the progression?';
+const rules = 'What number is missing in the progression?';
 
-export const generateRound = () => {
-  const generateProgression = () => {
-    const elemsCount = getRandomNumber(5, 10);
-    const step = getRandomNumber(2, 15);
-    const startNum = getRandomNumber(1, 25);
-    const progressionColl = [];
-    let i = 0;
-    while (i < elemsCount) {
-      const currentNum = startNum + (i * step);
-      progressionColl.push(currentNum);
-      i += 1;
-    }
-    return progressionColl;
-  };
-
-  const progression = generateProgression();
-
-  const getQuestionAndAnswer = (arr) => {
-    const index = getRandomNumber(0, (arr.length - 1));
-    const answer = String(arr[index]);
-
-    const task = arr;
-    task[index] = '..';
-    const normalizedTaskProgression = task.join(' ');
-
-    return [answer, normalizedTaskProgression];
-  };
-
-  return getQuestionAndAnswer(progression);
+const generateProgression = () => {
+  const elemsCount = getRandomNumber(5, 10);
+  const step = getRandomNumber(2, 15);
+  const initialNumber = getRandomNumber(1, 25);
+  const progressionColl = [];
+  let i = 0;
+  while (i < elemsCount) {
+    const currentNum = initialNumber + (i * step);
+    progressionColl.push(currentNum);
+    i += 1;
+  }
+  return progressionColl;
 };
+
+const generateRound = () => {
+  const progression = generateProgression();
+  const indexOfAnswer = getRandomNumber(0, (progression.length - 1));
+
+  const answer = String(progression[indexOfAnswer]);
+
+  progression[indexOfAnswer] = '..';
+  const question = progression.join(' ');
+
+  return [answer, question];
+};
+
+export default () => runEngine(rules, generateRound);
