@@ -4,8 +4,8 @@ export const rules = 'Find the greatest common divisor of given numbers.';
 
 export const generateRound = () => {
   const generateNumbers = () => {
-    const firstNumber = getRandomNumber(100, 1);
-    const secondNumber = getRandomNumber(100, 1);
+    const firstNumber = getRandomNumber(1, 100);
+    const secondNumber = getRandomNumber(1, 100);
 
     return [firstNumber, secondNumber];
   };

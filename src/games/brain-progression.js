@@ -4,9 +4,9 @@ export const rules = 'What number is missing in the progression?';
 
 export const generateRound = () => {
   const generateProgression = () => {
-    const elemsCount = getRandomNumber(10, 5);
-    const step = getRandomNumber(15, 2);
-    const startNum = getRandomNumber(25, 1);
+    const elemsCount = getRandomNumber(5, 10);
+    const step = getRandomNumber(2, 15);
+    const startNum = getRandomNumber(1, 25);
     const progressionColl = [];
     let i = 0;
     while (i < elemsCount) {
@@ -20,7 +20,7 @@ export const generateRound = () => {
   const progression = generateProgression();
 
   const getQuestionAndAnswer = (arr) => {
-    const index = getRandomNumber((arr.length - 1), 0);
+    const index = getRandomNumber(0, (arr.length - 1));
     const answer = String(arr[index]);
 
     const task = arr;
