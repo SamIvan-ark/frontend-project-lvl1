@@ -12,8 +12,11 @@ const calculate = (number1, number2, operator) => {
     case '-': {
       return String(number1 - number2);
     }
-    default: {
+    case '*': {
       return String(number1 * number2);
+    }
+    default: {
+      throw new Error(`Operator ${operator} doesn't supported`);
     }
   }
 };
